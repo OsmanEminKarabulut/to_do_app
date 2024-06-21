@@ -7,6 +7,7 @@ import 'package:to_do_app/core/service/firebase_service.dart';
 class TaskModel extends ChangeNotifier {
   List? tasks;
 
+  //This function checks the current users document named tasks.If it does not exist, it creates one.
   Future<void> fetchTasks(BuildContext context) async {
     if (FirebaseService.loggedIn == true) {
       var firestore = Provider.of<FirebaseService>(context).firestore;
@@ -30,6 +31,7 @@ class TaskModel extends ChangeNotifier {
     }
   }
 
+  //Add task to tasks and update firestore with firebase_service.dart
   Future<void> addTask(Task task, context, User user) async {
     tasks?.add(task.toMap());
     try {
@@ -42,6 +44,7 @@ class TaskModel extends ChangeNotifier {
   }
 }
 
+//Main task class
 class Task {
   String taskName;
   List<String> toDos;

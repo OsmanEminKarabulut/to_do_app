@@ -5,6 +5,7 @@ import 'package:to_do_app/view/sign_in_view.dart';
 import 'package:to_do_app/view/sign_up_view.dart';
 import 'package:to_do_app/view/welcome_view.dart';
 
+//Projects navigation configuration with GoRouter
 class Navigation {
   static final GoRouter router = GoRouter(routes: [
     GoRoute(

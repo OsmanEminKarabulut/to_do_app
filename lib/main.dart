@@ -7,12 +7,14 @@ import 'package:to_do_app/core/task_model.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
+  //Firebase initialization
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
   runApp(
+    //FirebaseService and TaskModel must be accessible all around project.
     MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -29,11 +31,12 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
+
+      //Router was provided by navigation.dart
       routerDelegate: Navigation.router.routerDelegate,
       routeInformationParser: Navigation.router.routeInformationParser,
       routeInformationProvider: Navigation.router.routeInformationProvider,
